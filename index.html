@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2C163A" />
+  <meta name="description" content="A luxury birthday tribute website for Rupinder." />
+  <title>Happy Birthday Rupinder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="background-glow background-glow--left"></div>
+  <div class="background-glow background-glow--right"></div>
+  <div class="floating-particles" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home">Rupinder</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#gallery">Memories</a>
+      <a href="#message">Message</a>
+      <a href="#timeline">Journey</a>
+      <a href="#wishes">Wishes</a>
+    </nav>
+    <div class="topbar-meta">
+      <span class="pill">Birthday • 2nd May</span>
+      <button class="ghost-button" id="musicToggle" type="button">Music Off</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hero" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">A luxury birthday tribute</p>
+        <h1>Happy Birthday Rupinder</h1>
+        <p class="hero-subtitle">Celebrating a Beautiful Soul, Researcher, Friend & Inspiration</p>
+        <div class="hero-details">
+          <span>2nd May</span>
+          <span>PhD Scholar — IIT Ropar</span>
+          <span>Research Area: Thermal Videos</span>
+        </div>
+        <div class="hero-actions">
+          <a class="primary-button" href="#gallery">Explore Memories</a>
+          <a class="secondary-button" href="#message">Read the Message</a>
+        </div>
+      </div>
+
+      <div class="hero-portrait reveal reveal--delay-1">
+        <div class="portrait-frame">
+          <div class="portrait-orb portrait-orb--one"></div>
+          <div class="portrait-orb portrait-orb--two"></div>
+          <div class="portrait-card">
+            <div class="portrait-image portrait-image--hero" data-image="assets/photos/hero.jpg">
+              <span class="portrait-placeholder">R</span>
+            </div>
+            <div class="portrait-caption">
+              <p class="portrait-name">Rupinder</p>
+              <p>Elegant, thoughtful, and unforgettable.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="section-heading reveal">
+        <p class="eyebrow">A Wonderful Human Being</p>
+        <h2>Beauty, kindness, and brilliance in one story.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="photo-panel reveal reveal--delay-1">
+          <div class="frame frame--tall">
+            <div class="portrait-image portrait-image--about" data-image="assets/photos/about.jpg">
+              <span class="photo-badge">Memory Portrait</span>
+              <span class="portrait-placeholder">R</span>
+            </div>
+          </div>
+        </div>
+        <article class="story-card reveal reveal--delay-2">
+          <span class="card-kicker">Warmth & purpose</span>
+          <p>Rupinder is a wonderful human being whose dedication, kindness, and brilliance inspire everyone around her.</p>
+          <p>As a PhD scholar at IIT Ropar, she continues to explore the unseen world through thermal videos, transforming research into insight.</p>
+          <p>Her calm personality, strong determination, and beautiful smile make every moment around her memorable.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Beautiful Moments</p>
+        <h2>Soft light, bright memories, and stories worth keeping.</h2>
+      </div>
+      <div class="masonry-grid">
+        <button class="gallery-item reveal" data-full="assets/photos/flower-market.jpg" data-title="Flower Market Bouquet" data-caption="A gentle burst of color and celebration.">
+          <img src="assets/photos/flower-market.jpg" alt="Flower market bouquet" loading="lazy" onerror="this.hidden=true; this.parentElement.classList.add('gallery-item--fallback')" />
+          <span class="gallery-label">Flower market bouquet</span>
+        </button>
+        <button class="gallery-item reveal reveal--delay-1" data-full="assets/photos/group-selfie.jpg" data-title="Group Selfie" data-caption="Friendship captured in one bright frame.">
+          <img src="assets/photos/group-selfie.jpg" alt="Group selfie" loading="lazy" onerror="this.hidden=true; this.parentElement.classList.add('gallery-item--fallback')" />
+          <span class="gallery-label">Group selfie</span>
+        </button>
+        <button class="gallery-item reveal reveal--delay-2 tall" data-full="assets/photos/green-dress.jpg" data-title="Green Dress Portrait" data-caption="Graceful, luminous, and effortlessly elegant.">
+          <img src="assets/photos/green-dress.jpg" alt="Green dress outdoor portrait" loading="lazy" onerror="this.hidden=true; this.parentElement.classList.add('gallery-item--fallback')" />
+          <span class="gallery-label">Green dress portrait</span>
+        </button>
+        <button class="gallery-item reveal reveal--delay-1" data-full="assets/photos/black-blazer.jpg" data-title="Black Blazer Portrait" data-caption="Poised style with a confident calm.">
+          <img src="assets/photos/black-blazer.jpg" alt="Black blazer portrait" loading="lazy" onerror="this.hidden=true; this.parentElement.classList.add('gallery-item--fallback')" />
+          <span class="gallery-label">Black blazer portrait</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section research" id="research">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Beauty with Intelligence</p>
+        <h2>Academic focus wrapped in graceful confidence.</h2>
+      </div>
+      <div class="research-grid">
+        <article class="research-card reveal">
+          <div class="research-icon">01</div>
+          <h3>PhD Scholar</h3>
+          <p>IIT Ropar</p>
+        </article>
+        <article class="research-card reveal reveal--delay-1">
+          <div class="research-icon">02</div>
+          <h3>Research Focus</h3>
+          <p>Thermal Videos</p>
+        </article>
+        <article class="research-card reveal reveal--delay-2">
+          <div class="research-icon">03</div>
+          <h3>Curious Mind</h3>
+          <p>Always Exploring</p>
+        </article>
+        <article class="research-card reveal reveal--delay-3">
+          <div class="research-icon">04</div>
+          <h3>Elegant Personality</h3>
+          <p>Kind & Inspiring</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section message" id="message">
+      <div class="section-heading reveal">
+        <p class="eyebrow">A Message For You</p>
+        <h2>Written with admiration, warmth, and gratitude.</h2>
+      </div>
+      <article class="parchment-card reveal reveal--delay-1">
+        <p>On your special day, we celebrate not only your birthday but also the incredible person you are.</p>
+        <p>Your dedication, intelligence, kindness, and beautiful spirit make you truly special.</p>
+        <p>The way you pursue your dreams and contribute through your research inspires everyone around you.</p>
+        <p>May your life always be filled with happiness, success, peace, and unforgettable memories.</p>
+        <p>Keep smiling, keep inspiring, and keep shining.</p>
+      </article>
+    </section>
+
+    <section class="section timeline" id="timeline">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Moments That Matter</p>
+        <h2>A journey of growth, research, friendship, and celebration.</h2>
+      </div>
+      <div class="timeline-track">
+        <article class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <h3>IIT Ropar journey</h3>
+          <p>Building expertise, discipline, and purpose through academic work.</p>
+        </article>
+        <article class="timeline-item reveal reveal--delay-1">
+          <span class="timeline-dot"></span>
+          <h3>Research milestones</h3>
+          <p>Turning thermal video exploration into insight and discovery.</p>
+        </article>
+        <article class="timeline-item reveal reveal--delay-2">
+          <span class="timeline-dot"></span>
+          <h3>Beautiful memories</h3>
+          <p>Moments that feel gentle, candid, and worth returning to.</p>
+        </article>
+        <article class="timeline-item reveal reveal--delay-3">
+          <span class="timeline-dot"></span>
+          <h3>Friendship moments</h3>
+          <p>Shared laughter, comfort, and the kind of energy that stays.</p>
+        </article>
+        <article class="timeline-item reveal reveal--delay-4">
+          <span class="timeline-dot"></span>
+          <h3>Birthday celebration</h3>
+          <p>Today is a reminder that your presence makes life brighter.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wishes" id="wishes">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Birthday Wishes</p>
+        <h2>Soft words floating like confetti.</h2>
+      </div>
+      <div class="wish-cloud">
+        <article class="wish-card reveal">Stay happy always.</article>
+        <article class="wish-card reveal reveal--delay-1">Keep inspiring everyone.</article>
+        <article class="wish-card reveal reveal--delay-2">Your smile lights up every room.</article>
+        <article class="wish-card reveal reveal--delay-3">Keep chasing your dreams.</article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-glow"></div>
+    <div class="footer-content reveal">
+      <p class="footer-signature">From Prathamesh and Harasees, <br />Always Your Friends</p>
+      <p class="footer-subtext">A heartfelt birthday tribute for Rupinder.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-close></div>
+    <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+      <button class="lightbox-close" type="button" data-close aria-label="Close image">×</button>
+      <div class="lightbox-media">
+        <img id="lightboxImage" alt="" />
+        <div class="lightbox-fallback" id="lightboxFallback">R</div>
+      </div>
+      <div class="lightbox-copy">
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxCaption"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
