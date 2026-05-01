@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2C163A" />
+  <meta name="description" content="Birthday Treasure Hunt Game - Find all gifts and unlock Rupinder's birthday surprise!" />
+  <title>🎈 Birthday Treasure Hunt - Rupinder's Surprise 🎉</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="game-styles.css" />
+</head>
+<body>
+  <div class="background-glow background-glow--left"></div>
+  <div class="background-glow background-glow--right"></div>
+  <div class="floating-particles" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html">Rupinder's Birthday</a>
+    <div class="navbar-center">
+      <h1 class="game-title">🎈 Treasure Hunt Adventure 🎉</h1>
+    </div>
+    <div class="progress-tracker">
+      <span class="progress-text">Gifts Found:</span>
+      <span class="progress-count"><span id="foundCount">0</span>/7</span>
+    </div>
+  </header>
+
+  <main class="game-container">
+    <section class="welcome-screen" id="welcomeScreen">
+      <div class="welcome-card reveal">
+        <div class="welcome-icon">🎈</div>
+        <h2>Welcome to the Treasure Hunt!</h2>
+        <p class="welcome-subtitle">Click on the balloons to discover Rupinder's birthday surprises and gift hints!</p>
+        <div class="welcome-rules">
+          <h3>How to Play:</h3>
+          <ul>
+            <li>🎈 Find all 7 floating balloons</li>
+            <li>💥 Click them to pop and reveal gift hints</li>
+            <li>💌 Read the lovely messages and photo moments</li>
+            <li>🎁 Discover hints about amazing gifts</li>
+            <li>✨ Unlock the grand finale!</li>
+          </ul>
+        </div>
+        <button class="primary-button start-button" id="startButton">Start the Adventure →</button>
+      </div>
+    </section>
+
+    <section class="game-arena" id="gameArena" style="display: none;">
+      <canvas id="particleCanvas"></canvas>
+      
+      <div class="balloons-container" id="balloonsContainer"></div>
+
+      <div class="reveal-panel" id="revealPanel">
+        <button class="close-reveal" id="closeReveal">×</button>
+        <div class="gift-card">
+          <div class="gift-card-header" id="giftCardHeader"></div>
+          <div class="gift-card-content">
+            <h3 id="giftTitle"></h3>
+            <div class="gift-photos" id="giftPhotos"></div>
+            <div class="gift-message" id="giftMessage"></div>
+            <div class="gift-hint" id="giftHint"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="completion-modal" id="completionModal" style="display: none;">
+        <div class="modal-content reveal">
+          <h2>🎊 Adventure Complete! 🎊</h2>
+          <p>You've discovered all 7 gifts!</p>
+          <div class="completion-buttons">
+            <a href="gifts.html" class="primary-button">View All Gifts →</a>
+            <a href="index.html" class="secondary-button">Back to Tribute</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="game-script.js"></script>
+</body>
+</html>
