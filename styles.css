@@ -810,6 +810,278 @@ h3 {
   to { transform: scale(1); opacity: 1; }
 }
 
+/* ===== PREMIUM MOTION ANIMATIONS ===== */
+
+/* 1. PARALLAX SCROLL ANIMATION */
+.parallax-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-image img {
+  will-change: transform;
+}
+
+/* 2. BLUR-IN ANIMATION */
+@keyframes blurIn {
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.blur-in {
+  animation: blurIn 1.2s ease-out forwards;
+}
+
+/* 3. SMOOTH MORPH ANIMATION */
+@keyframes morphShapes {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: scale(0.95) rotate(0deg);
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: scale(1.05) rotate(180deg);
+  }
+  100% {
+    border-radius: 40% 60% 30% 70% / 40% 60% 70% 30%;
+    transform: scale(0.95) rotate(360deg);
+  }
+}
+
+.morph-shape {
+  animation: morphShapes 8s ease-in-out infinite;
+}
+
+/* 4. FLOATING GALLERY HOVER */
+@keyframes floatRotate {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+.float-gallery {
+  animation: floatRotate 6s ease-in-out infinite;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.float-gallery:hover {
+  transform: scale(1.08) perspective(1000px) rotateY(5deg) rotateX(-5deg) !important;
+  filter: brightness(1.15);
+  box-shadow: 0 40px 100px rgba(212, 175, 55, 0.35);
+}
+
+/* 5. CONFETTI BURST */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-burst {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  z-index: 100;
+  animation: confetti-fall linear forwards;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* 6. TEXT LETTER-BY-LETTER ANIMATION */
+@keyframes letterAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.letter-animate {
+  display: inline-block;
+  animation: letterAppear 0.6s ease-out forwards;
+}
+
+/* 7. GLOW PULSE ANIMATION */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4),
+                0 0 40px rgba(212, 175, 55, 0.2);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.7),
+                0 0 80px rgba(212, 175, 55, 0.4);
+    filter: brightness(1.2);
+  }
+}
+
+.gold-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.gold-accent {
+  color: var(--gold);
+}
+
+/* 8. TIMELINE ANIMATED PATH */
+@keyframes drawLine {
+  0% {
+    background-size: 1px 0%;
+  }
+  100% {
+    background-size: 1px 100%;
+  }
+}
+
+.timeline-track--animated::before {
+  background-image: linear-gradient(180deg, 
+    rgba(125, 91, 166, 0.18) 0%,
+    rgba(212, 175, 55, 0.45) 50%,
+    rgba(125, 91, 166, 0.18) 100%);
+  animation: drawLine 2s ease-in-out forwards;
+}
+
+.timeline-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+/* 9. CAROUSEL SLIDE ANIMATION */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.carousel-slide {
+  animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.carousel-slide.exit {
+  animation: slideOutLeft 0.8s ease-in-out forwards;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 28rem;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+}
+
+.carousel-slide-item {
+  flex: 0 0 100%;
+  position: relative;
+}
+
+.carousel-controls {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.8rem;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
+/* 10. STAGGERED IMAGE GRID REVEAL */
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.gallery-grid-item {
+  animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+.gallery-grid-item:nth-child(1) { animation-delay: 0s; }
+.gallery-grid-item:nth-child(2) { animation-delay: 0.1s; }
+.gallery-grid-item:nth-child(3) { animation-delay: 0.2s; }
+.gallery-grid-item:nth-child(4) { animation-delay: 0.3s; }
+.gallery-grid-item:nth-child(5) { animation-delay: 0.4s; }
+.gallery-grid-item:nth-child(6) { animation-delay: 0.5s; }
+.gallery-grid-item:nth-child(7) { animation-delay: 0.6s; }
+.gallery-grid-item:nth-child(8) { animation-delay: 0.7s; }
+
 @media (max-width: 1080px) {
   .topbar {
     padding-inline: 1rem;
