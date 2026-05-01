@@ -179,7 +179,7 @@ function createConfetti(balloonEl) {
     particle.animate(
       [
         { transform: 'translate(0, 0)', opacity: 1 },
-        { transform: `translate(${(Math.random() * 200 - 100)}px, ${-(Math.random() * 300))}px)`, opacity: 0 }
+        { transform: `translate(${Math.random() * 200 - 100}px, ${-(Math.random() * 300)}px)`, opacity: 0 }
       ],
       {
         duration: 1000 + Math.random() * 1000,
