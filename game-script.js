@@ -202,13 +202,15 @@ function showGiftCard(gift) {
   header.innerHTML = gift.emoji;
   title.innerHTML = gift.title;
 
-  // Create photo placeholders (will be filled when user adds photos)
+  // Create photo placeholders using available memory images
   photosContainer.innerHTML = '';
   for (let i = 1; i <= gift.photos; i++) {
     const photoDiv = document.createElement('div');
     photoDiv.className = 'gift-photo-item';
+    // Cycle through available memory images (1-4)
+    const imageNum = ((i - 1) % 4) + 1;
     photoDiv.innerHTML = `
-      <img src="assets/photos/gift-${gift.id}-photo-${i}.jpg" 
+      <img src="assets/photos/memory-${imageNum}.png" 
            alt="Memory ${i}" 
            loading="lazy"
            onerror="this.parentElement.innerHTML = '📷'" />
