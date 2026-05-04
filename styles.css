@@ -491,6 +491,28 @@ h3 {
   color: rgba(37, 25, 45, 0.78);
 }
 
+.about-highlight {
+  font-size: 1.15rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(189, 167, 212, 0.15));
+  padding: 1rem;
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  margin-bottom: 0.5rem !important;
+  font-style: italic;
+}
+
+.about-closing {
+  font-size: 1.1rem;
+  color: var(--purple);
+  font-weight: 600;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 12px;
+  text-align: center;
+}
+
 .masonry-grid {
   grid-template-columns: repeat(12, 1fr);
 }

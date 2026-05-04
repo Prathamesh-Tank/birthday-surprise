@@ -116,9 +116,21 @@ document.addEventListener('keydown', (event) => {
 });
 
 let musicEnabled = false;
+const birthdayAudio = document.getElementById('birthdayAudio');
+
 musicToggle.addEventListener('click', () => {
   musicEnabled = !musicEnabled;
-  musicToggle.textContent = musicEnabled ? 'Music Ready' : 'Music Off';
+  if (musicEnabled) {
+    birthdayAudio.loop = true;
+    birthdayAudio.play().catch(() => {
+      console.log('Audio playback failed - browser may require user interaction');
+    });
+    musicToggle.textContent = '🎵 Music On';
+  } else {
+    birthdayAudio.pause();
+    birthdayAudio.currentTime = 0;
+    musicToggle.textContent = '🎵 Music Off';
+  }
 });
 
 /* ===== PREMIUM MOTION ANIMATIONS JS ===== */
