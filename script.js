@@ -119,6 +119,15 @@ let musicEnabled = false;
 const birthdayAudio = document.getElementById('birthdayAudio');
 const playSongButton = document.getElementById('playSongButton');
 
+// Ensure audio is ready
+birthdayAudio.addEventListener('canplay', () => {
+  console.log('Audio is ready to play');
+});
+
+birthdayAudio.addEventListener('error', (e) => {
+  console.error('Audio error:', e.target.error);
+});
+
 musicToggle.addEventListener('click', () => {
   musicEnabled = !musicEnabled;
   if (musicEnabled) {
@@ -136,15 +145,23 @@ musicToggle.addEventListener('click', () => {
 });
 
 playSongButton.addEventListener('click', () => {
+  console.log('Play button clicked');
   birthdayAudio.loop = false;
   birthdayAudio.volume = 1;
   birthdayAudio.currentTime = 0;
+  
+  // Force reload to ensure fresh audio
+  birthdayAudio.src = birthdayAudio.querySelector('source').src;
+  
   const playPromise = birthdayAudio.play();
   if (playPromise !== undefined) {
-    playPromise.catch((error) => {
-      console.log('Audio playback failed:', error);
-      alert('Audio playback requires user interaction. Please enable audio in your browser.');
-    });
+    playPromise
+      .then(() => {
+        console.log('Audio started playing');
+      })
+      .catch((error) => {
+        console.error('Audio playback failed:', error);
+      });
   }
 });
 
