@@ -104,14 +104,19 @@ function setupEventListeners() {
 function createBalloons() {
   balloonsContainer.innerHTML = '';
   const colors = ['red', 'blue', 'yellow', 'green', 'purple', 'pink', 'orange'];
+  const memoryImages = ['memory-1.png', 'memory-2.png', 'memory-3.png', 'memory-4.png'];
 
   gifts.forEach((gift, index) => {
     const balloon = document.createElement('div');
     balloon.className = `balloon ${colors[index]}`;
     balloon.dataset.giftId = gift.id;
     
+    // Cycle through available memory images
+    const imageNum = index % 4;
+    const imagePath = `assets/photos/${memoryImages[imageNum]}`;
+    
     balloon.innerHTML = `
-      <div class="balloon-body"></div>
+      <div class="balloon-body" style="background-image: url('${imagePath}'); background-size: cover; background-position: center;"></div>
       <div class="balloon-string"></div>
       <div class="balloon-number">${gift.id}</div>
     `;
