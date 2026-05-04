@@ -119,49 +119,100 @@ let musicEnabled = false;
 const birthdayAudio = document.getElementById('birthdayAudio');
 const playSongButton = document.getElementById('playSongButton');
 
-// Ensure audio is ready
-birthdayAudio.addEventListener('canplay', () => {
-  console.log('Audio is ready to play');
-});
+// Create Web Audio API context for generating Happy Birthday song
+let audioContext = null;
 
-birthdayAudio.addEventListener('error', (e) => {
-  console.error('Audio error:', e.target.error);
-});
+function initAudioContext() {
+  if (!audioContext) {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  return audioContext;
+}
+
+function playNote(frequency, duration) {
+  const ctx = initAudioContext();
+  const oscillator = ctx.createOscillator();
+  const gainNode = ctx.createGain();
+  
+  oscillator.connect(gainNode);
+  gainNode.connect(ctx.destination);
+  
+  oscillator.frequency.value = frequency;
+  oscillator.type = 'sine';
+  
+  gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
+  gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + duration);
+  
+  oscillator.start(ctx.currentTime);
+  oscillator.stop(ctx.currentTime + duration);
+}
+
+function playHappyBirthday() {
+  const ctx = initAudioContext();
+  
+  // Happy Birthday melody (frequencies in Hz)
+  // Note: C, C, D, C, F, E (Happy Birthday to you...)
+  const notes = [
+    { freq: 262, duration: 0.5 },   // C
+    { freq: 262, duration: 0.5 },   // C
+    { freq: 294, duration: 0.5 },   // D
+    { freq: 262, duration: 0.5 },   // C
+    { freq: 349, duration: 0.5 },   // F
+    { freq: 330, duration: 1 },     // E (held longer)
+    { freq: 262, duration: 0.5 },   // C
+    { freq: 262, duration: 0.5 },   // C
+    { freq: 294, duration: 0.5 },   // D
+    { freq: 262, duration: 0.5 },   // C
+    { freq: 392, duration: 0.5 },   // G
+    { freq: 349, duration: 1 },     // F (held longer)
+    { freq: 262, duration: 0.5 },   // C
+    { freq: 262, duration: 0.5 },   // C
+    { freq: 523, duration: 0.5 },   // C (high)
+    { freq: 440, duration: 0.5 },   // A
+    { freq: 349, duration: 0.5 },   // F
+    { freq: 330, duration: 0.5 },   // E
+    { freq: 294, duration: 0.5 },   // D
+    { freq: 262, duration: 1.5 }    // C (longer ending)
+  ];
+  
+  let currentTime = ctx.currentTime;
+  notes.forEach(note => {
+    const oscillator = ctx.createOscillator();
+    const gainNode = ctx.createGain();
+    
+    oscillator.connect(gainNode);
+    gainNode.connect(ctx.destination);
+    
+    oscillator.frequency.value = note.freq;
+    oscillator.type = 'sine';
+    
+    gainNode.gain.setValueAtTime(0.3, currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, currentTime + note.duration);
+    
+    oscillator.start(currentTime);
+    oscillator.stop(currentTime + note.duration);
+    
+    currentTime += note.duration;
+  });
+}
 
 musicToggle.addEventListener('click', () => {
   musicEnabled = !musicEnabled;
   if (musicEnabled) {
-    birthdayAudio.loop = true;
-    birthdayAudio.volume = 0.5;
-    birthdayAudio.play().catch((error) => {
-      console.log('Audio playback failed:', error);
-    });
+    // For background music, we'd need an actual audio file
     musicToggle.textContent = '🎵 Music On';
   } else {
-    birthdayAudio.pause();
-    birthdayAudio.currentTime = 0;
     musicToggle.textContent = '🎵 Music Off';
   }
 });
 
 playSongButton.addEventListener('click', () => {
   console.log('Play button clicked');
-  birthdayAudio.loop = false;
-  birthdayAudio.volume = 1;
-  birthdayAudio.currentTime = 0;
-  
-  // Force reload to ensure fresh audio
-  birthdayAudio.src = birthdayAudio.querySelector('source').src;
-  
-  const playPromise = birthdayAudio.play();
-  if (playPromise !== undefined) {
-    playPromise
-      .then(() => {
-        console.log('Audio started playing');
-      })
-      .catch((error) => {
-        console.error('Audio playback failed:', error);
-      });
+  try {
+    playHappyBirthday();
+    console.log('Happy Birthday song started!');
+  } catch (error) {
+    console.error('Error playing song:', error);
   }
 });
 
