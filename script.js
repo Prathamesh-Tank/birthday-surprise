@@ -117,6 +117,7 @@ document.addEventListener('keydown', (event) => {
 
 let musicEnabled = false;
 const birthdayAudio = document.getElementById('birthdayAudio');
+const playSongButton = document.getElementById('playSongButton');
 
 musicToggle.addEventListener('click', () => {
   musicEnabled = !musicEnabled;
@@ -131,6 +132,14 @@ musicToggle.addEventListener('click', () => {
     birthdayAudio.currentTime = 0;
     musicToggle.textContent = '🎵 Music Off';
   }
+});
+
+playSongButton.addEventListener('click', () => {
+  birthdayAudio.loop = false;
+  birthdayAudio.currentTime = 0;
+  birthdayAudio.play().catch(() => {
+    console.log('Audio playback failed - browser may require user interaction');
+  });
 });
 
 /* ===== PREMIUM MOTION ANIMATIONS JS ===== */

@@ -153,7 +153,8 @@ footer {
 .pill,
 .ghost-button,
 .primary-button,
-.secondary-button {
+.secondary-button,
+.tertiary-button {
   border-radius: 999px;
   padding: 0.78rem 1.2rem;
   border: 1px solid transparent;
@@ -179,9 +180,16 @@ footer {
   box-shadow: 0 20px 35px rgba(125, 91, 166, 0.28);
 }
 
+.tertiary-button {
+  background: linear-gradient(135deg, var(--rose), #d4a887 55%, #e5c5a8);
+  color: #fff;
+  box-shadow: 0 20px 35px rgba(200, 155, 123, 0.28);
+}
+
 .ghost-button:hover,
 .secondary-button:hover,
-.primary-button:hover {
+.primary-button:hover,
+.tertiary-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 22px 40px rgba(44, 22, 58, 0.16);
 }
