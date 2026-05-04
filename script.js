@@ -123,8 +123,9 @@ musicToggle.addEventListener('click', () => {
   musicEnabled = !musicEnabled;
   if (musicEnabled) {
     birthdayAudio.loop = true;
-    birthdayAudio.play().catch(() => {
-      console.log('Audio playback failed - browser may require user interaction');
+    birthdayAudio.volume = 0.5;
+    birthdayAudio.play().catch((error) => {
+      console.log('Audio playback failed:', error);
     });
     musicToggle.textContent = '🎵 Music On';
   } else {
@@ -136,10 +137,15 @@ musicToggle.addEventListener('click', () => {
 
 playSongButton.addEventListener('click', () => {
   birthdayAudio.loop = false;
+  birthdayAudio.volume = 1;
   birthdayAudio.currentTime = 0;
-  birthdayAudio.play().catch(() => {
-    console.log('Audio playback failed - browser may require user interaction');
-  });
+  const playPromise = birthdayAudio.play();
+  if (playPromise !== undefined) {
+    playPromise.catch((error) => {
+      console.log('Audio playback failed:', error);
+      alert('Audio playback requires user interaction. Please enable audio in your browser.');
+    });
+  }
 });
 
 /* ===== PREMIUM MOTION ANIMATIONS JS ===== */

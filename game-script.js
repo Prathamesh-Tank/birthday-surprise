@@ -1,66 +1,48 @@
-// Gift data - 7 gifts with themes
+// Gift data - 5 gifts
 const gifts = [
   {
     id: 1,
-    emoji: '📚',
-    title: 'Knowledge & Growth',
-    message: 'For all the research breakthroughs and continuous learning on your journey!',
-    hint: 'A gift to expand your mind and feed your curiosity...',
-    color: 'purple',
-    photos: 3
-  },
-  {
-    id: 2,
-    emoji: '✈️',
-    title: 'Adventures & Experiences',
-    message: 'For creating beautiful memories beyond the campus walls!',
-    hint: 'Something to make unforgettable journeys around the world...',
-    color: 'blue',
-    photos: 3
-  },
-  {
-    id: 3,
-    emoji: '💅',
-    title: 'Self-Care & Wellness',
-    message: 'For taking care of yourself and embracing your elegance!',
-    hint: 'Something luxurious to pamper yourself with...',
-    color: 'pink',
-    photos: 3
-  },
-  {
-    id: 4,
-    emoji: '🎨',
-    title: 'Creativity & Expression',
-    message: 'For letting your beautiful spirit shine through your creations!',
-    hint: 'Something to inspire your artistic side...',
+    emoji: '🌹',
+    title: 'Bouquet',
+    message: 'A beautiful collection of fresh flowers to brighten your day!',
+    hint: 'Nature\'s most colorful and fragrant gift...',
     color: 'red',
     photos: 3
   },
   {
-    id: 5,
+    id: 2,
+    emoji: '💐',
+    title: 'Perfume',
+    message: 'An elegant fragrance to match your graceful personality!',
+    hint: 'Something that carries your essence wherever you go...',
+    color: 'pink',
+    photos: 3
+  },
+  {
+    id: 3,
+    emoji: '✨',
+    title: 'Set of Necklace',
+    message: 'Beautiful jewelry to complement your timeless elegance!',
+    hint: 'Shimmering accessories that frame your beauty...',
+    color: 'purple',
+    photos: 3
+  },
+  {
+    id: 4,
     emoji: '💎',
-    title: 'Elegance & Style',
-    message: 'For your timeless beauty and graceful personality!',
-    hint: 'Something to accessorize your sophisticated taste...',
+    title: 'Jewellery Organizer',
+    message: 'A stylish way to organize and display your precious collection!',
+    hint: 'A keeper for all your treasured pieces...',
     color: 'yellow',
     photos: 3
   },
   {
-    id: 6,
-    emoji: '🎵',
-    title: 'Joy & Entertainment',
-    message: 'For all the happiness you bring to everyone around you!',
-    hint: 'Something to bring music and laughter to your days...',
-    color: 'green',
-    photos: 3
-  },
-  {
-    id: 7,
-    emoji: '💝',
-    title: 'Love & Friendship',
-    message: 'For being an inspiration and true friend to all of us!',
-    hint: 'Something as special as the bond we share with you...',
-    color: 'orange',
+    id: 5,
+    emoji: '💍',
+    title: 'Bracelet',
+    message: 'An exquisite bracelet to adorn your wrist with grace!',
+    hint: 'A wearable reminder of our special friendship...',
+    color: 'blue',
     photos: 3
   }
 ];
@@ -103,7 +85,7 @@ function setupEventListeners() {
 // Create floating balloons
 function createBalloons() {
   balloonsContainer.innerHTML = '';
-  const colors = ['red', 'blue', 'yellow', 'green', 'purple', 'pink', 'orange'];
+  const colors = ['red', 'pink', 'purple', 'yellow', 'blue'];
   const memoryImages = ['memory-1.png', 'memory-2.png', 'memory-3.png', 'memory-4.png'];
 
   gifts.forEach((gift, index) => {
